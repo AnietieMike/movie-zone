@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/discoverMoviesFragment">
+
+    <fragment
+        android:id="@+id/discoverMoviesFragment"
+        android:name="com.anietie.moviezone.ui.movieslist.discover.DiscoverMoviesFragment"
+        android:label="fragment_movie_home"
+        tools:layout="@layout/fragment_discover_movies" >
+        <action
+            android:id="@+id/action_discoverMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteMoviesFragment"
+        android:name="com.anietie.moviezone.ui.movieslist.favourites.FavouriteMoviesFragment"
+        android:label="fragment_favourite_movies"
+        tools:layout="@layout/fragment_favourite_movies" >
+        <action
+            android:id="@+id/action_favouriteMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.anietie.moviezone.ui.moviedetails.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+        <argument
+            android:name="movieId"
+            app:argType="long" />
+    </fragment>
+</navigation>

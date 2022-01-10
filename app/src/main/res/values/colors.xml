@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_400">#FF8000FF</color>
+    <color name="purple_300">#FF1F1631</color>
+    <color name="purple_600">#FF36076B</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="pink">#FFFF1F8A</color>
+    <color name="pink_400">#F3BB3B78</color>
+    <color name="teal_200">#5003DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="blue_grey_200">#B0BBC5</color>
+    <color name="almost_black">#FF21222E</color>
+    <color name="almost_black_200">#FF303243</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_teal">#FF5D8D8D</color>
+    <color name="system_ui_scrim_light">#E3ffffff</color>
+    <color name="system_ui_scrim_dark">@color/purple_400</color>
+
+    <color name="status_bar_scrim">@color/system_ui_scrim_dark</color>
+    <color name="nav_bar_scrim">@color/status_bar_scrim</color>
+</resources>

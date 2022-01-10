@@ -1,0 +1,49 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="51dp"
+    android:height="51dp"
+    android:viewportWidth="51"
+    android:viewportHeight="51">
+  <path
+      android:pathData="M25.5,25.5m-25.5,0a25.5,25.5 0,1 1,51 0a25.5,25.5 0,1 1,-51 0">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startY="0"
+          android:startX="25.5"
+          android:endY="51"
+          android:endX="25.5"
+          android:type="linear">
+        <item android:offset="0" android:color="#FF7041D8"/>
+        <item android:offset="1" android:color="#FF36076B"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M25.5,25.5m-24.75,0a24.75,24.75 0,1 1,49.5 0a24.75,24.75 0,1 1,-49.5 0"
+      android:strokeAlpha="0.24"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000">
+    <aapt:attr name="android:strokeColor">
+      <gradient 
+          android:startY="0"
+          android:startX="25.5"
+          android:endY="51"
+          android:endX="25.5"
+          android:type="linear">
+        <item android:offset="0" android:color="#FF540BA1"/>
+        <item android:offset="1" android:color="#00540BA1"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M39.8344,26.0915L27.4611,35.7356C26.9685,36.1195 26.25,35.7685 26.25,35.144L26.25,15.856C26.25,15.2315 26.9685,14.8805 27.4611,15.2644L39.8344,24.9085C40.2196,25.2087 40.2196,25.7913 39.8344,26.0915Z"
+      android:strokeWidth="0.5"
+      android:fillColor="#CC288A"
+      android:fillAlpha="0.82"
+      android:strokeColor="#540BA1"/>
+  <path
+      android:pathData="M28.8344,26.0915L16.4611,35.7356C15.9685,36.1195 15.25,35.7685 15.25,35.144L15.25,15.856C15.25,15.2315 15.9685,14.8805 16.4611,15.2644L28.8344,24.9085C29.2196,25.2087 29.2196,25.7913 28.8344,26.0915Z"
+      android:strokeWidth="0.5"
+      android:fillColor="#FF1F8A"
+      android:strokeColor="#540BA1"/>
+</vector>
