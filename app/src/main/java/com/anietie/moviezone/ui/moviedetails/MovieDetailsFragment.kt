@@ -72,7 +72,6 @@ class MovieDetailsFragment : Fragment() {
                     if (viewModel.isFavorite) {
                         menu.findItem(R.id.action_favorite).setIcon(R.drawable.ic_round_favorite_24)
                             .setTitle(R.string.action_remove_from_favorites)
-                        Toast.makeText(requireContext(), "Is favorite", Toast.LENGTH_SHORT).show()
                     } else {
                         menu.findItem(R.id.action_favorite).setIcon(R.drawable.ic_round_favorite_border)
                             .setTitle(R.string.action_remove_from_favorites)
