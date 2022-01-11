@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ShareCompat
 import androidx.core.view.ViewCompat
@@ -27,7 +28,6 @@ import com.anietie.moviezone.utils.Constants
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.snackbar.Snackbar
-import timber.log.Timber
 
 class MovieDetailsFragment : Fragment() {
 
@@ -35,6 +35,7 @@ class MovieDetailsFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: MovieDetailsFragmentArgs by navArgs()
     private lateinit var viewModel: MovieDetailsViewModel
+    private lateinit var toolbar: Toolbar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,8 +51,8 @@ class MovieDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val movieId = args.movieId
         viewModel = obtainViewModel(this)
-        Timber.tag("Viewmodel initialized").d("Initializing viewmodel... $movieId")
         viewModel.init(movieId)
+
         setupToolbar()
         setupTrailersAdapter()
         setupCastAdapter()
@@ -67,6 +68,16 @@ class MovieDetailsFragment : Fragment() {
                 }
                 binding.resource = resource
                 binding.setMovieDetails(resource.data)
+                with(toolbar) {
+                    if (viewModel.isFavorite) {
+                        menu.findItem(R.id.action_favorite).setIcon(R.drawable.ic_round_favorite_24)
+                            .setTitle(R.string.action_remove_from_favorites)
+                        Toast.makeText(requireContext(), "Is favorite", Toast.LENGTH_SHORT).show()
+                    } else {
+                        menu.findItem(R.id.action_favorite).setIcon(R.drawable.ic_round_favorite_border)
+                            .setTitle(R.string.action_remove_from_favorites)
+                    }
+                }
             }
         )
 
@@ -75,7 +86,7 @@ class MovieDetailsFragment : Fragment() {
             viewModel.retry(movieId)
         }
 
-        // Observe snackbar messages
+        // Observe SnackBar messages
         viewModel.snackbarMessage.observe(
             viewLifecycleOwner,
             { message ->
@@ -89,19 +100,9 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun setupToolbar() {
-        var isFavorite = viewModel.isFavorite
-        val toolbar: Toolbar = binding.toolbar
+        toolbar = binding.toolbar
         toolbar.inflateMenu(R.menu.movie_details_menu)
         toolbar.setNavigationIcon(R.drawable.ic_back)
-        with(toolbar) {
-            if (isFavorite) {
-                menu.findItem(R.id.action_favorite).setIcon(R.drawable.ic_round_favorite_24)
-                    .setTitle(R.string.action_remove_from_favorites)
-                isFavorite = false
-            }
-            menu.findItem(R.id.action_favorite).setIcon(R.drawable.ic_round_favorite_border)
-                .setTitle(R.string.action_remove_from_favorites)
-        }
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_share -> {

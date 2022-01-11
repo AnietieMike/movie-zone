@@ -9,22 +9,21 @@ import com.anietie.moviezone.data.local.model.MovieDetails
 import com.anietie.moviezone.data.local.model.Resource
 import com.anietie.moviezone.data.repo.MovieRepository
 import com.anietie.moviezone.utils.SnackBarMessage
-import timber.log.Timber
 
 class MovieDetailsViewModel(private val repository: MovieRepository) : ViewModel() {
     var result: LiveData<Resource<MovieDetails>>? = null
     private val movieIdLiveData = MutableLiveData<Long>()
     val snackbarMessage = SnackBarMessage()
+    private var isFavoriteLiveData = MutableLiveData<Boolean>()
     var isFavorite = false
 
     fun init(movieId: Long) {
         if (result != null) {
             return // load movie details only once the activity created first time
         }
-        Timber.tag("ViewModel working").d("Initializing viewModel")
         result = Transformations.switchMap(
             movieIdLiveData
-        ) { movieId -> repository.loadMovie(movieId!!) }
+        ) { id -> repository.loadMovie(id!!) }
         setMovieIdLiveData(movieId) // trigger loading movie
     }
 

@@ -11,7 +11,6 @@ import com.anietie.moviezone.data.local.model.RepoMoviesResult
 import com.anietie.moviezone.data.local.model.Resource
 import com.anietie.moviezone.data.repo.MovieRepository
 import com.anietie.moviezone.ui.movieslist.MoviesFilterType
-import kotlinx.coroutines.flow.MutableStateFlow
 import java.lang.IllegalArgumentException
 
 class DiscoverMoviesViewModel(private val movieRepository: MovieRepository) : ViewModel() {
@@ -21,12 +20,6 @@ class DiscoverMoviesViewModel(private val movieRepository: MovieRepository) : Vi
     val networkState: LiveData<Resource<*>>
     private val currentTitle = MutableLiveData<Int?>()
     private val sortBy = MutableLiveData<MoviesFilterType?>()
-    val currentSorting: MoviesFilterType?
-        get() = sortBy.value
-
-    fun getCurrentTitle(): LiveData<Int?> {
-        return currentTitle
-    }
 
     fun setSortMoviesBy(id: String) {
         val filterType: MoviesFilterType?
